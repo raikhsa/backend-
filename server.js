@@ -129,18 +129,18 @@ app.post('/api/db-proxy', (req, res) => {
  * POST /api/generate-nftoken
  * Generate token dari NetflixId (dipanggil frontend saat parse cookie)
  */
-app.post('/api/generate-nftoken', (req, res) => {
+app.post('/api/generate-nftoken', async (req, res) => {
     try {
         const { netflixId } = req.body;
         if (!netflixId || typeof netflixId !== 'string' || netflixId.length < 5) {
             return res.status(400).json({ error: 'NetflixId tidak valid' });
         }
 
-        const token = generateNftoken(netflixId.trim());
+        const token = await generateNftoken(netflixId.trim());
         res.json({ token });
     } catch (err) {
         console.error('[generate-nftoken]', err.message);
-        res.status(500).json({ error: 'Gagal generate token' });
+        res.status(500).json({ error: err.message || 'Gagal generate token' });
     }
 });
 
