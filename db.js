@@ -86,8 +86,8 @@ const settingsKV = new KvStore('settings');
 
 // Default settings
 const DEFAULTS = {
-    price_regular:  '3000',
-    price_indo:     '10000',
+    price_regular:  '15000',
+    price_indo:     '25000',
     admin_password: 'raikhs123',
     site_name:      'Raikhsapedia',
 };

@@ -150,11 +150,11 @@ app.post('/api/generate-nftoken', (req, res) => {
  */
 app.get('/api/payment-config', (req, res) => {
     try {
-        const amount     = parseInt(getSetting('price_regular')) || 3000;
-        const indoAmount = parseInt(getSetting('price_indo'))    || 10000;
+        const amount     = parseInt(getSetting('price_regular')) || 15000;
+        const indoAmount = parseInt(getSetting('price_indo'))    || 25000;
         res.json({ amount, indoAmount });
     } catch (err) {
-        res.json({ amount: 3000, indoAmount: 10000 });
+        res.json({ amount: 15000, indoAmount: 25000 });
     }
 });
 
